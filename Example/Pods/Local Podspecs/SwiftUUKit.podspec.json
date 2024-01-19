@@ -1,8 +1,8 @@
 {
   "name": "SwiftUUKit",
   "version": "0.1.0",
-  "summary": "A short description of SwiftUUKit.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Common UI component tool classes, including TableView data-drive.",
+  "description": "Common UI component tool classes, including TableView data-drive.",
   "homepage": "https://github.com/Xcoder1011/SwiftUUKit",
   "license": {
     "type": "MIT",
@@ -18,5 +18,19 @@
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "SwiftUUKit/Classes/**/*"
+  "subspecs": [
+    {
+      "name": "UUTableView",
+      "source_files": "SwiftUUKit/Classes/UUTableView/**/*",
+      "dependencies": {
+        "SnapKit": [
+          "~> 5.0"
+        ]
+      }
+    },
+    {
+      "name": "Utils",
+      "source_files": "SwiftUUKit/Classes/Utils/**/*"
+    }
+  ]
 }

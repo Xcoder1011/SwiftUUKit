@@ -11,8 +11,17 @@ public class UUCellAdapter {
     public var reuseIdentifier: String?
     public var cellHeight: CGFloat = 0.0
     public var data: Any?
+    public var cellClass: AnyClass?
     
     public init() { }
+    
+    public init(cellClass: AnyClass?) {
+        self.cellClass = cellClass
+        if let anyClass = cellClass {
+            let className = UUKitTool.classNameAsString(anyClass)
+            self.reuseIdentifier = className
+        }
+    }
     
     public init(reuseIdentifier: String) {
         self.reuseIdentifier = reuseIdentifier

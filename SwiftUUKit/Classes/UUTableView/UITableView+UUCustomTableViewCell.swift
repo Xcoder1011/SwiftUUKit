@@ -36,17 +36,17 @@ extension UITableView {
         }
         cell.cellAdapter = cellAdapter
         cell.indexPath = indexPath
-        cell.uu_loadData()
+        cell.loadData(with: cellAdapter, for: indexPath)
         return cell
     }
     
     public func uu_registerClassForCell(_ cellClass: AnyClass){
-        let className = String(describing: cellClass)
+        let className = UUKitTool.classNameAsString(cellClass)
         register(cellClass, forCellReuseIdentifier: className)
     }
     
     public func uu_registerNibForCell(_ cellClass: AnyClass){
-        let className = String(describing: cellClass)
+        let className = UUKitTool.classNameAsString(cellClass)
         let nib = UINib(nibName: className, bundle: nil)
         register(nib, forCellReuseIdentifier: className)
     }

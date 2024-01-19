@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftUUKit'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SwiftUUKit.'
+  s.summary          = 'Common UI component tool classes, including TableView data-drive.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Common UI component tool classes, including TableView data-drive.
                        DESC
 
   s.homepage         = 'https://github.com/Xcoder1011/SwiftUUKit'
@@ -30,7 +30,16 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'SwiftUUKit/Classes/**/*'
+#  s.source_files = 'SwiftUUKit/Classes/**/*'
+  
+  s.subspec 'UUTableView' do |ss|
+    ss.source_files = 'SwiftUUKit/Classes/UUTableView/**/*'
+    ss.dependency 'SnapKit', '~> 5.0'
+  end
+  
+  s.subspec 'Utils' do |ss|
+    ss.source_files = 'SwiftUUKit/Classes/Utils/**/*'
+  end
   
   # s.resource_bundles = {
   #   'SwiftUUKit' => ['SwiftUUKit/Assets/*.png']
@@ -38,5 +47,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'SnapKit', '~> 5.0'
+  # s.dependency 'SnapKit', '~> 5.0'
 end

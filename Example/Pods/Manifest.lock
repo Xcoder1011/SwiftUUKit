@@ -1,15 +1,26 @@
 PODS:
-  - SwiftUUKit (0.1.0)
+  - SnapKit (5.6.0)
+  - SwiftUUKit (0.1.0):
+    - SwiftUUKit/Utils (= 0.1.0)
+    - SwiftUUKit/UUTableView (= 0.1.0)
+  - SwiftUUKit/Utils (0.1.0)
+  - SwiftUUKit/UUTableView (0.1.0):
+    - SnapKit (~> 5.0)
 
 DEPENDENCIES:
   - SwiftUUKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
 
 EXTERNAL SOURCES:
   SwiftUUKit:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftUUKit: bf66302df734d786c4ed4416aa086523ea878e1c
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftUUKit: 1570fbcaf63a46261a427e83b09135689015f9bf
 
 PODFILE CHECKSUM: c36751926cbdf7cd84f728dee0d983fcf244f755
 

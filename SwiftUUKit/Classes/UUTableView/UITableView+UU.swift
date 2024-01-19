@@ -17,6 +17,7 @@ extension UITableView {
     weak var uu_dataSource: UUTableViewDataSource? {
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.uu_dataSourceKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            self.dataSource = newValue
         }
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.uu_dataSourceKey) as? UUTableViewDataSource
@@ -26,6 +27,7 @@ extension UITableView {
     weak var uu_delegate: UUTableViewDelegate? {
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.uu_delegateKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            self.delegate = newValue
         }
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.uu_delegateKey) as? UUTableViewDelegate
