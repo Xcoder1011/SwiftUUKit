@@ -25,6 +25,9 @@
       "dependencies": {
         "SnapKit": [
           "~> 5.0"
+        ],
+        "SwiftUUKit/Utils": [
+
         ]
       }
     },

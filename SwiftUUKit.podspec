@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
   s.subspec 'UUTableView' do |ss|
     ss.source_files = 'SwiftUUKit/Classes/UUTableView/**/*'
     ss.dependency 'SnapKit', '~> 5.0'
+    ss.dependency 'SwiftUUKit/Utils'
   end
   
   s.subspec 'Utils' do |ss|

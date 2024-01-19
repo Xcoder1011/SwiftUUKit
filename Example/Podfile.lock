@@ -6,6 +6,7 @@ PODS:
   - SwiftUUKit/Utils (0.1.0)
   - SwiftUUKit/UUTableView (0.1.0):
     - SnapKit (~> 5.0)
+    - SwiftUUKit/Utils
 
 DEPENDENCIES:
   - SwiftUUKit (from `../`)
@@ -20,7 +21,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  SwiftUUKit: 1570fbcaf63a46261a427e83b09135689015f9bf
+  SwiftUUKit: 4e1375a3bffc1d4efe82eaf18a1216d9f9b0e400
 
 PODFILE CHECKSUM: c36751926cbdf7cd84f728dee0d983fcf244f755
 
