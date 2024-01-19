@@ -1,0 +1,22 @@
+{
+  "name": "SwiftUUKit",
+  "version": "0.1.0",
+  "summary": "A short description of SwiftUUKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Xcoder1011/SwiftUUKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Xcoder1011": "shangkunwu@msn.com"
+  },
+  "source": {
+    "git": "https://github.com/Xcoder1011/SwiftUUKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "SwiftUUKit/Classes/**/*"
+}

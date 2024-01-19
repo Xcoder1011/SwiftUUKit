@@ -1,0 +1,16 @@
+PODS:
+  - SwiftUUKit (0.1.0)
+
+DEPENDENCIES:
+  - SwiftUUKit (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftUUKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftUUKit: bf66302df734d786c4ed4416aa086523ea878e1c
+
+PODFILE CHECKSUM: c36751926cbdf7cd84f728dee0d983fcf244f755
+
+COCOAPODS: 1.14.3

@@ -1,0 +1,6 @@
+framework module SwiftUUKit {
+  umbrella header "SwiftUUKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
