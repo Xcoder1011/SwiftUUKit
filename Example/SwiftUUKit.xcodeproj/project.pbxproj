@@ -47,7 +47,7 @@
 		BCAA1CD92B5A99FF00DAAB24 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		C0EFA0D88D45D792416A37FE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E802A75F239611CE2FD12AC6 /* Pods-SwiftUUKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUUKit_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftUUKit_Example/Pods-SwiftUUKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		EF3D5713255FCB435DAA727F /* SwiftUUKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftUUKit.podspec; path = ../SwiftUUKit.podspec; sourceTree = "<group>"; };
+		EF3D5713255FCB435DAA727F /* SwiftUUKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftUUKit.podspec; path = ../SwiftUUKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F5848C13A5CA412B9244585A /* Pods_SwiftUUKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUUKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
