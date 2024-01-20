@@ -32,7 +32,7 @@ public class UUCellAdapter {
         self.reuseIdentifier = reuseIdentifier
     }
     
-    public init(reuseIdentifier: String, data: AnyObject?) {
+    public init(reuseIdentifier: String, data: Any?) {
         self.reuseIdentifier = reuseIdentifier
         self.data = data
     }

@@ -10,7 +10,7 @@ import Foundation
 class UUTableViewDataSource: NSObject {
     fileprivate var sectionAdapters: [UUSectionAdapter] = []
     fileprivate var sectionIndexTitles: [String] = []
-
+    
     func insert(_ section: UUSectionAdapter, at index: Int) {
         sectionAdapters.insert(section, at: index)
     }
@@ -57,5 +57,22 @@ extension UUTableViewDataSource: UITableViewDataSource {
         let adapter = sectionAdapters[indexPath.section]
         let cellAdapter = adapter.cellAdapters[indexPath.row]
         return tableView.dequeueReusableCustomTableViewCell(with: cellAdapter, for: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let adapter = sectionAdapters[section]
+        return adapter.titleForHeader
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        let adapter = sectionAdapters[section]
+        return adapter.titleForFooter
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        if sectionIndexTitles.count > 0 {
+            return sectionIndexTitles
+        }
+        return nil
     }
 }

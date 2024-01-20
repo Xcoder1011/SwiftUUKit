@@ -15,7 +15,6 @@ class HomeCell: UUCustomTableViewCell {
     private lazy var subLabel: UILabel = {
         let label = UILabel(frame: CGRectZero)
         label.font = UIFont.systemFont(ofSize: 15)
-        label.backgroundColor = UUKitTool.randomColor()
         return label
     }()
     
@@ -29,34 +28,32 @@ class HomeCell: UUCustomTableViewCell {
     }()
     
     override func makeUI() {
-        super.makeUI()
+        contentView.backgroundColor = .white
         contentView.addSubview(subLabel)
         contentView.addSubview(subBtn)
-
         subLabel.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.centerY.equalToSuperview()
-            make.left.equalTo(10)
+            make.left.equalTo(20)
             make.right.equalTo(subBtn.snp.left).offset(-10)
         }
-        
         subBtn.snp.makeConstraints { make in
             make.size.equalTo(CGSizeMake(60, 30))
             make.centerY.equalToSuperview()
             make.right.equalTo(-10)
         }
+        super.makeUI()
     }
     
     @objc func btnClick(_ sender: UIButton) {
-        print("cell 按钮被点击:\(sender.tag)")
-        if let delegate = cellAdapter?.cellDelegate {
-            delegate.uu_tableView(self.tableView, in: self, eventData: "\(sender.tag)", actionType: 0)
+        if let delegate = cellAdapter?.cellDelegate, let data = cellAdapter?.data {
+            delegate.uu_tableView(self.tableView, in: self, eventData: data, actionType: 0)
         }
     }
     
     override func loadData(with cellAdapter: UUCellAdapter, for indexPath: IndexPath) {
         if let data = cellAdapter.data {
-            subLabel.text = "cell row: \(indexPath.row) --  \(data)"
+            subLabel.text = "cell row: \(indexPath.row) -- data: \(data)"
         }
     }
 }

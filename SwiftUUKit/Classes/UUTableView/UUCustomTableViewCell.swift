@@ -16,12 +16,10 @@ public protocol UUCustomTableViewCellDelegate : class {
 
 public extension UUCustomTableViewCellDelegate {
     func uu_tableView(_ tableView: UITableView?, didSelect cell: UUCustomTableViewCell) { }
-    
     func uu_tableView(_ tableView: UITableView?, in cell: UUCustomTableViewCell, eventData: Any?, actionType: Int) { }
 }
 
 open class UUCustomTableViewCell: UITableViewCell {
-    
     open weak var cellAdapter: UUCellAdapter?
     open weak var tableView: UITableView?
     open var indexPath: IndexPath?
@@ -36,9 +34,7 @@ open class UUCustomTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    
     open func makeUI() {
-        backgroundColor = .white
         updateUI()
     }
     

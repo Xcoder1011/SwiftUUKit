@@ -13,7 +13,31 @@ public class UUSectionAdapter {
     public var footerHeight: CGFloat = 0.0
     public var headerData: Any?
     public var footerData: Any?
+    public weak var headerView: UIView?
+    public weak var footerView: UIView?
+    public var titleForHeader: String?
+    public var titleForFooter: String?
+    public var reuseHeaderIdentifier: String?
+    public var reuseFooterIdentifier: String?
     
+    public var headerClass: AnyClass? {
+        didSet {
+            if let headerClass = self.headerClass {
+                self.reuseHeaderIdentifier = UUKitTool.classNameAsString(headerClass)
+            }
+        }
+    }
+    
+    public var footerClass: AnyClass? {
+        didSet {
+            if let footerClass = self.footerClass {
+                self.reuseFooterIdentifier = UUKitTool.classNameAsString(footerClass)
+            }
+        }
+    }
+    
+    public var tag: Int = 0
+
     public init() { }
     
     public init(cellAdapters: [UUCellAdapter]) {
@@ -24,5 +48,16 @@ public class UUSectionAdapter {
         self.cellAdapters = cellAdapters
         self.headerData = headerData
         self.footerData = footerData
+    }
+    
+    public init(headerClass: AnyClass?, footerClass: AnyClass?) {
+        self.headerClass = headerClass
+        self.footerClass = footerClass
+        if (headerClass != nil) {
+            self.reuseHeaderIdentifier = UUKitTool.classNameAsString(headerClass!)
+        }
+        if (footerClass != nil) {
+            self.reuseFooterIdentifier = UUKitTool.classNameAsString(footerClass!)
+        }
     }
 }

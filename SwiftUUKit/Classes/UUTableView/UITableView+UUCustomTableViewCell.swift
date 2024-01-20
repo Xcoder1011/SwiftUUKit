@@ -18,6 +18,7 @@ extension UUReusableView {
 }
 
 extension UITableViewCell: UUReusableView { }
+extension UITableViewHeaderFooterView: UUReusableView { }
 
 extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
@@ -39,6 +40,32 @@ extension UITableView {
         return cell
     }
     
+    func dequeueReusableHeaderView<T: UUTableViewHeaderFooterView>(with sectionAdapter: UUSectionAdapter, for section: Int) -> T {
+        let reuseIdentifier = sectionAdapter.reuseHeaderIdentifier ?? T.reuseIdentifier
+        guard let header = dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) as? T else {
+            fatalError("Could not dequeue reusableHeaderView with identifier: \(reuseIdentifier)")
+        }
+        
+        header.sectionAdapter = sectionAdapter
+        header.section = section
+        header.tableView = self
+        header.loadData(with: sectionAdapter, for: section)
+        return header
+    }
+    
+    func dequeueReusableFooterView<T: UUTableViewHeaderFooterView>(with sectionAdapter: UUSectionAdapter, for section: Int) -> T {
+        let reuseIdentifier = sectionAdapter.reuseFooterIdentifier ?? T.reuseIdentifier
+        guard let footer = dequeueReusableHeaderFooterView(withIdentifier: reuseIdentifier) as? T else {
+            fatalError("Could not dequeue reusablerFooterView with identifier: \(reuseIdentifier)")
+        }
+        
+        footer.sectionAdapter = sectionAdapter
+        footer.section = section
+        footer.tableView = self
+        footer.loadData(with: sectionAdapter, for: section)
+        return footer
+    }
+    
     public func uu_registerClassForCell(_ cellClass: AnyClass){
         let className = UUKitTool.classNameAsString(cellClass)
         register(cellClass, forCellReuseIdentifier: className)
@@ -48,5 +75,16 @@ extension UITableView {
         let className = UUKitTool.classNameAsString(cellClass)
         let nib = UINib(nibName: className, bundle: nil)
         register(nib, forCellReuseIdentifier: className)
+    }
+    
+    public func uu_registerClassForHeaderFooter(_ aClass: AnyClass){
+        let className = UUKitTool.classNameAsString(aClass)
+        register(aClass, forHeaderFooterViewReuseIdentifier: className)
+    }
+    
+    public func uu_registerNibForHeaderFooter(_ aClass: AnyClass){
+        let className = UUKitTool.classNameAsString(aClass)
+        let nib = UINib(nibName: className, bundle: nil)
+        register(nib, forHeaderFooterViewReuseIdentifier: className)
     }
 }

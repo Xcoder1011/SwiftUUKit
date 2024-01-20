@@ -16,6 +16,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		609A5A033E7AB1D92AEE7FDF /* Pods_SwiftUUKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5848C13A5CA412B9244585A /* Pods_SwiftUUKit_Tests.framework */; };
 		BCAA1CDA2B5A99FF00DAAB24 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAA1CD92B5A99FF00DAAB24 /* HomeCell.swift */; };
+		BCD3CFDC2B5BD01100904BCA /* HomeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3CFDB2B5BD01100904BCA /* HomeTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		782E42E729EF7B1851F518D3 /* Pods-SwiftUUKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUUKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUUKit_Tests/Pods-SwiftUUKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F178A1BDC9E4954EEE26080 /* Pods-SwiftUUKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUUKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-SwiftUUKit_Example/Pods-SwiftUUKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BCAA1CD92B5A99FF00DAAB24 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		BCD3CFDB2B5BD01100904BCA /* HomeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableHeaderView.swift; sourceTree = "<group>"; };
 		C0EFA0D88D45D792416A37FE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E802A75F239611CE2FD12AC6 /* Pods-SwiftUUKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUUKit_Example.release.xcconfig"; path = "Target Support Files/Pods-SwiftUUKit_Example/Pods-SwiftUUKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		EF3D5713255FCB435DAA727F /* SwiftUUKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftUUKit.podspec; path = ../SwiftUUKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -107,6 +109,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				BCAA1CD92B5A99FF00DAAB24 /* HomeCell.swift */,
+				BCD3CFDB2B5BD01100904BCA /* HomeTableHeaderView.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				BCD3CFDC2B5BD01100904BCA /* HomeTableHeaderView.swift in Sources */,
 				BCAA1CDA2B5A99FF00DAAB24 /* HomeCell.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
