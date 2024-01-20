@@ -35,12 +35,19 @@ class ViewController: UIViewController {
         var cellAdapters: [UUCellAdapter] = []
         let randomCount = Int(arc4random_uniform(UInt32(5))) + 2
         for i in 0 ..< randomCount {
-            let adapter = UUCellAdapter.init(cellClass: HomeCell.self)
-            adapter.data = i + 1
-            adapter.cellHeight = 50
+            let adapter = UUCellAdapter.cellAdapter(with: HomeCell.self, data: i+1, cellHeight: 50)
+            adapter.cellDelegate = self
             cellAdapters.append(adapter)
         }
         return cellAdapters
     }
 }
 
+extension ViewController: UUCustomTableViewCellDelegate {
+    
+    func uu_tableView(_ tableView: UITableView?, in cell: SwiftUUKit.UUCustomTableViewCell, eventData: Any?, actionType: Int) {
+        if let eventData = eventData {
+            print("controller 按钮被点击:\(eventData)")
+        }
+    }
+}
