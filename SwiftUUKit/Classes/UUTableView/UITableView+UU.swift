@@ -44,6 +44,19 @@ extension UITableView {
         self.uu_delegate = delegate
     }
     
+    public func uu_createDelegateAndOtherTargets(_ targets: [AnyObject]?) {
+        uu_createDelegate()
+        if let targets = targets, !targets.isEmpty {
+            let array = NSPointerArray(options: [])
+            targets.enumerated().forEach { (index, target) in
+                /// 使用 Unmanaged 类来管理内存
+                /// 将目标对象转换为 Unmanaged<AnyObject> 类型
+                array.addPointer(Unmanaged.passUnretained(target).toOpaque())
+            }
+            self.uu_delegate?.targets = array
+        }
+    }
+    
     public func uu_insert(_ section: UUSectionAdapter, at index: Int) {
         self.uu_dataSource?.insert(section, at: index)
     }

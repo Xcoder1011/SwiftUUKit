@@ -7,7 +7,9 @@
 
 import Foundation
 
-class UUTableViewDelegate: NSObject { }
+class UUTableViewDelegate: NSObject {
+    var targets: NSPointerArray = NSPointerArray(options: .weakMemory)
+}
 
 extension UUTableViewDelegate: UITableViewDelegate {
     
@@ -90,4 +92,44 @@ extension UUTableViewDelegate: UITableViewDelegate {
         return nil
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        weakTargetExec(#selector(UITableViewDelegate.scrollViewDidScroll(_:))) { target in
+            target.scrollViewDidScroll?(scrollView)
+        }
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        weakTargetExec(#selector(UITableViewDelegate.scrollViewWillBeginDragging(_:))) { target in
+            target.scrollViewWillBeginDragging?(scrollView)
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        weakTargetExec(#selector(UITableViewDelegate.scrollViewDidEndDragging(_:willDecelerate:))) { target in
+            target.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        weakTargetExec(#selector(UITableViewDelegate.scrollViewDidEndDecelerating(_:))) { target in
+            target.scrollViewDidEndDecelerating?(scrollView)
+        }
+    }
+    
+    
+    private func weakTargetExec(_ aSelector: Selector, complete: ((UITableViewDelegate)->())?) {
+        if targets.count > 0 {
+            /// 遍历之前清除野指针
+            targets.compact()
+            for i in 0 ..< targets.count {
+                if let targetPtr = targets.pointer(at: i) {
+                    if let target = Unmanaged<NSObject>.fromOpaque(targetPtr).takeUnretainedValue() as? UITableViewDelegate, target.responds(to: aSelector) {
+                        if let complete = complete {
+                            complete(target)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
