@@ -7,9 +7,7 @@
 
 import Foundation
 
-class UUTableViewDelegate: NSObject {
-  
-}
+class UUTableViewDelegate: NSObject { }
 
 extension UUTableViewDelegate: UITableViewDelegate {
    

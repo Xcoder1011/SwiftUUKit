@@ -17,9 +17,7 @@ extension UUReusableView {
     }
 }
 
-extension UITableViewCell: UUReusableView {
-    
-}
+extension UITableViewCell: UUReusableView { }
 
 extension UITableView {
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
@@ -36,6 +34,7 @@ extension UITableView {
         }
         cell.cellAdapter = cellAdapter
         cell.indexPath = indexPath
+        cell.tableView = self
         cell.loadData(with: cellAdapter, for: indexPath)
         return cell
     }

@@ -7,11 +7,25 @@
 
 import UIKit
 
+public protocol UUCustomTableViewCellDelegate : class {
+    
+    func uu_tableView(_ tableView: UITableView?, didSelect cell: UUCustomTableViewCell)
+    
+    func uu_tableView(_ tableView: UITableView?, in cell: UUCustomTableViewCell, eventData: Any?, actionType: Int)
+}
+
+public extension UUCustomTableViewCellDelegate {
+    func uu_tableView(_ tableView: UITableView?, didSelect cell: UUCustomTableViewCell) { }
+    
+    func uu_tableView(_ tableView: UITableView?, in cell: UUCustomTableViewCell, eventData: Any?, actionType: Int) { }
+}
+
 open class UUCustomTableViewCell: UITableViewCell {
     
     open weak var cellAdapter: UUCellAdapter?
+    open weak var tableView: UITableView?
     open var indexPath: IndexPath?
- 
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCell()
