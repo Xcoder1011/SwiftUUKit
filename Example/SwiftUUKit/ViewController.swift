@@ -10,12 +10,13 @@ import UIKit
 import SwiftUUKit
 
 class ViewController: UIViewController {
-    
     lazy var tableView: UITableView = {
         let view = UUKitTool.createTableView(frame: self.view.bounds, style: .plain)
         view.separatorStyle = .singleLine
-        view.uu_createDelegate()
+        // view.uu_createDelegate()
+        view.uu_createDelegateAndOtherTargets([self])
         view.uu_createDataSource()
+        
         view.uu_registerClassForCell(HomeCell.self)
         view.uu_registerClassForHeaderFooter(HomeTableHeaderView.self)
         view.uu_registerClassForHeaderFooter(HomeTableFooterView.self)
@@ -39,6 +40,7 @@ class ViewController: UIViewController {
             secAdapter.footerHeight = 50
             secAdapter.footerData = i
             
+            secAdapter.headerFooterDelegate = self
             secAdapters.append(secAdapter)
         }
         tableView.uu_add(secAdapters)
@@ -66,9 +68,9 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UUCustomTableViewCellDelegate {
+extension ViewController: UUCustomTableViewCellDelegate, UUTableViewHeaderFooterViewDelegate {
     
-    func uu_tableView(_ tableView: UITableView?, in cell: SwiftUUKit.UUCustomTableViewCell, eventData: Any?, actionType: Int) {
+    func uu_tableView(_ tableView: UITableView?, in cell: UUCustomTableViewCell, eventData: Any?, actionType: Int) {
         if let eventData = eventData {
             showAlert("controller 按钮被点击:\(eventData)")
         }
@@ -79,4 +81,25 @@ extension ViewController: UUCustomTableViewCellDelegate {
             showAlert("cell被点击:\(data)")
         }
     }
+    
+    func uu_tableView(_ tableView: UITableView?, in headerOrFooter: UUTableViewHeaderFooterView, eventData: Any?, actionType: Int) {
+        if let eventData = eventData {
+            if actionType == 101 {
+                showAlert("header 按钮被点击:\(eventData)")
+            } else if actionType == 102 {
+                showAlert("footer 按钮被点击:\(eventData)")
+            }
+        }
+    }
 }
+
+extension ViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        // print("scrollView.contentOffset.y ==  \(scrollView.contentOffset.y)")
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        // print("scrollViewDidEndDragging willDecelerate ==  \(decelerate)")
+    }
+}
+

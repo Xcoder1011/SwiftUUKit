@@ -19,6 +19,7 @@ public class UUSectionAdapter {
     public var titleForFooter: String?
     public var reuseHeaderIdentifier: String?
     public var reuseFooterIdentifier: String?
+    public weak var headerFooterDelegate: UUTableViewHeaderFooterViewDelegate?
     
     public var headerClass: AnyClass? {
         didSet {
@@ -37,7 +38,7 @@ public class UUSectionAdapter {
     }
     
     public var tag: Int = 0
-
+    
     public init() { }
     
     public init(cellAdapters: [UUCellAdapter]) {
